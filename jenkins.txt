@@ -10,9 +10,8 @@ pipeline {
         stage('BuildingImage') {
             steps {
                 sh """
-                cd /home/ubuntu/helm/client-app
-                ls
-                pwd
+                cd /home/ubuntu/helm/docker-assignment
+                docker build -t soorajnew
             """
             }
         }

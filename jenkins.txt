@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh """
                 cd /home/ubuntu/helm/client-app
-                docker build -t soorajnew .
+                ls
             """
             }
         }

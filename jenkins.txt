@@ -7,9 +7,21 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Soorajnaik/helm.git'
             }
         }
-        stage('Rolling_update') {
+        stage('BuildingImage') {
             steps {
-                sh '
+                sh """
+                cd helm/client-app/
+                docker build -t soorajNew .
+            """
+            }
+        }
+        stage('PushToECR') {
+            steps {
+                sh """
+                aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 883195043912.dkr.ecr.us-west-2.amazonaws.com
+                docker tag soorajNew 883195043912.dkr.ecr.us-west-2.amazonaws.com/soorajNew
+                docker push 883195043912.dkr.ecr.us-west-2.amazonaws.com/soorajNew
+            """               
             }
         }
     }

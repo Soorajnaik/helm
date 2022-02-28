@@ -10,7 +10,7 @@ pipeline {
         stage('BuildingImage') {
             steps {
                 sh """
-                cd helm/client-app/
+                cd /home/ubuntu/helm/client-app/
                 docker build -t soorajNew .
             """
             }

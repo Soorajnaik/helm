@@ -12,6 +12,7 @@ pipeline {
                 sh """
                 cd /home/ubuntu/helm/client-app
                 ls
+                pwd
             """
             }
         }

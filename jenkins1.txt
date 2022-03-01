@@ -9,7 +9,7 @@ pipeline {
         }
         stage('BuildingImage') {
             steps {
-                sh 'script1.sh'
+                sh 'pwd'
             }
         }
         stage('Helm_install_or_upgrade') {

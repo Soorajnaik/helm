@@ -1,0 +1,23 @@
+pipeline {
+    agent {label 'EKS-node'}
+
+    stages {
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Soorajnaik/helm.git'
+            }
+        }
+        stage('BuildingImage') {
+            steps {
+                sh 'script1.sh'
+            }
+        }
+        stage('Helm_install_or_upgrade') {
+            steps {
+                sh 'helm upgrade --install sooraj-jenkis-shell client-app --namespace sooraj'
+            }
+        }
+
+    }
+}
+

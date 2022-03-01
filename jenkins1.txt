@@ -9,7 +9,7 @@ pipeline {
         }
         stage('BuildingImage') {
             steps {
-                sh 'script1.sh'
+                sh '/home/ubuntu/workspace/HELM_jen_shell/script1.sh'
             }
         }
         stage('Helm_install_or_upgrade') {

@@ -26,8 +26,10 @@ pipeline {
         }
         stage('HelmInstall_or_Upgrade') {
             steps {
+                sh """
                 pwd
                 helm upgrade --install newclient-mahesh client-app --namespace sooraj
+            """
             }
         }
     }

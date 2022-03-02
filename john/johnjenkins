@@ -14,7 +14,6 @@ pipeline {
                 docker build -t hellopage .
                 docker tag hellopage soorajkumary/hellopage
 		docker push soorajkumary/hellopage
-                helm create hellopage
             """
             }
         }

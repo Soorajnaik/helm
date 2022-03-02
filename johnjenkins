@@ -1,0 +1,16 @@
+pipeline {
+    agent {label 'EKS-node'}
+
+    stages {
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Soorajnaik/helm.git'
+            }
+        }
+        stage('BuildingImage') {
+            steps {
+                sh 'ls'
+            }
+        }
+    }
+}

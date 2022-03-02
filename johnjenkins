@@ -9,7 +9,12 @@ pipeline {
         }
         stage('BuildingImage') {
             steps {
-                sh 'ls'
+                sh """
+                cd johnpapa
+                docker build -t hellopage .
+                docker tag hellopage soorajkumary/johnpapa
+		docker push soorajkumary/johnpapa
+            """
             }
         }
     }
